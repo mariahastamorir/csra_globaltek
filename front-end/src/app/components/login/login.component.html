@@ -1,0 +1,10 @@
+<div class="login-container">
+    <h2>Iniciar sesión</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+        <input type="text" name="username" placeholder="Usuario" ngModel required>
+        <input type="password" name="password" placeholder="Contraseña" ngModel required>
+        <button type="submit" [disabled]="!loginForm.valid">Iniciar sesión</button>
+    </form>
+    <a href="#">¿Has olvidado tu contraseña?</a>
+    <a href="#">¿No tienes una cuenta? Contáctenos</a>
+</div>
