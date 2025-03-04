@@ -1,10 +1,17 @@
 <div class="login-container">
-    <h2>Iniciar sesión</h2>
-    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
-        <input type="text" name="username" placeholder="Usuario" ngModel required>
-        <input type="password" name="password" placeholder="Contraseña" ngModel required>
-        <button type="submit" [disabled]="!loginForm.valid">Iniciar sesión</button>
-    </form>
-    <a href="#">¿Has olvidado tu contraseña?</a>
-    <p>¿No tienes una cuenta? <a href="#">Contáctenos</a></p>
+    <div class="logo">
+        <img src="C:\Users\maria.hastamorir\CsRA\front-end\src\app\components\login\logo.png">
+    </div>
+    <div class="login-cuadro">
+        <h1>Iniciar sesión</h1>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="form">
+            <input type="text" name="username" placeholder="Usuario" ngModel required>
+            <br>
+            <input type="password" name="password" placeholder="Contraseña" ngModel required>
+            <br>
+            <button type="submit" [disabled]="!loginForm.valid">Iniciar sesión</button>
+        </form>
+        <a href="#">¿Has olvidado tu contraseña?</a>
+        <p>¿No tienes una cuenta? <a href="#">Contáctenos</a></p>
+    </div>
 </div>
