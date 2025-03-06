@@ -1,17 +1,26 @@
 <div class="login-container">
-    <div class="logo">
-        <img src="C:\Users\maria.hastamorir\CsRA\front-end\src\app\components\login\logo.png">
+    <div class="logo-section">
+        <img id="logo" src="/assets/img/logo_sin_fondo.png">  
     </div>
-    <div class="login-cuadro">
+    <div class="login-section">
         <h1>Iniciar sesión</h1>
-        <form (ngSubmit)="onSubmit()" #loginForm="ngForm" class="form">
-            <input type="text" name="username" placeholder="Usuario" ngModel required>
-            <br>
-            <input type="password" name="password" placeholder="Contraseña" ngModel required>
-            <br>
-            <button type="submit" [disabled]="!loginForm.valid">Iniciar sesión</button>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm" >
+            <div class="input-cointainer">
+                <input type="text" name="username" ngModel required>
+                <label for="username">Correo </label>
+            </div>
+            <div class="input-cointainer">
+                <input type="password" name="password"ngModel required>
+                <label for="contraseña">Contraseña</label>
+            </div>
+            <div class="recuperar">
+                <a href="#">¿Has olvidado tu contraseña?</a>
+            </div>
+            <div class="boton">
+                <button type="submit" [disabled]="!loginForm.valid">Iniciar sesión</button>
+            </div>
         </form>
-        <a href="#">¿Has olvidado tu contraseña?</a>
+        
         <p>¿No tienes una cuenta? <a href="#">Contáctenos</a></p>
     </div>
 </div>

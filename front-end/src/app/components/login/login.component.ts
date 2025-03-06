@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -7,13 +9,26 @@ import { Component } from '@angular/core';
   styleUrl: './login.component.css'
 })
 export class LoginComponent {
-  username: string = '';
-  password: string = '';
+  loginForm: FormGroup;
+
+  constructor(private fb: FormBuilder) {
+    this.loginForm = this.fb.group({
+      email: ['', [Validators.required, Validators.email]], // Validación de email
+      password: ['', [Validators.required, Validators.minLength(6)]], // Validación de contraseña
+    });
+  }
+  
+  usuario: string = '';
+  contrasena: string = '';
+  showPassword: boolean = false;
+
+  togglePassword() {
+    this.showPassword = !this.showPassword;
+  }
 
   onSubmit() {
-    // Aquí puedes añadir la lógica para manejar el inicio de sesión
-    console.log('Usuario:', this.username);
-    console.log('Contraseña:', this.password);
+    console.log('Usuario:', this.usuario);
+    console.log('Contraseña:', this.contrasena);
   }
 
 }
