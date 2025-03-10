@@ -6,7 +6,7 @@ import psycopg2
 dbname= 'proyecto_csra_globaltek'
 user= 'postgres'
 password= '19961994'
-host= ''  #la dirección IP de postgres
+host= 'localhost'  #la dirección IP de postgres
 port= '5432'
 
 #conexion a la base de datos
@@ -24,17 +24,27 @@ try:
     cursor = connection.cursor()
     
     #ejecutar consulta simple
-    cursor.execute('select * from tipodocumento')
+    cursor.execute('SELECT * FROM tipodocumento')
     
-    #obtener resultado
-    record =cursor.fetchall()
-    print(f"Conectado a la base de datos: {record}")
+    #obtener resultado (en este caso son listas)
+    records =cursor.fetchall()
+    print(f"Conectado a la base de datos. Total registros: {len(records)}")
+    
+    #imprimir iterando la consulta y guardando las filas - rows
+    for fila in records:
+        print(fila)
 
-    #cerrar el curso y la conexion
+
+    #-----cerrar el cursor y la conexion
     cursor.close()
-    connection.close()
-
+    
+    
 except Exception as error:
-    print(f"Error al conectar a la base de datos: {KeyError}")
+    print(f"Error al conectar a la base de datos: {error}")
         
         
+finally:
+    #------cerrar conexion con validación si existio la conexion
+    if connection is not None:
+        connection.close()
+        print('Conexion cerrada')
