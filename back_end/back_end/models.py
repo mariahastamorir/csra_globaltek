@@ -1,11 +1,5 @@
 from django.db import models
 
-<<<<<<< Updated upstream
-class usuario(models.Model):
-
-    def __str__(self):
-        return super().__str__()
-=======
 class TipoDocumento(models.Model):
 
     id = models.AutoField(primary_key=True)
@@ -121,4 +115,4 @@ class criticidad(models.Model):
     id = models
     estado = models
     valor = models
->>>>>>> Stashed changes
+
