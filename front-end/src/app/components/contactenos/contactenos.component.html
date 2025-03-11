@@ -1,0 +1,47 @@
+<div class="login-container">
+    <div class="logo-section">
+        <img id="logo" src="img/logo.png">  
+    </div>
+    <div class="login-section">
+        <h1>Contactenos</h1>
+        <form (ngSubmit)="onSubmit()" #loginForm="ngForm" >
+            <div class="input-cointainer">
+                <div class="label-1">
+                    <input type="text" name="nombres" ngModel required>
+                    <label for="username">Nombres </label>
+                </div>
+                <div class="label-2">
+                    <input type="text" name="apellidos"ngModel required>
+                    <label for="contraseña">Apellidos</label>
+                </div> 
+            </div>
+            <div class="input-cointainer">
+                <div class="label-1">
+                    <input type="email" name="correoEmpresarial"ngModel required>
+                <label for="contraseña">Correo eléctrico empresarial </label>
+                </div>
+                <div class="label-2">
+                    <input type="text" name="empresa"ngModel required>
+                    <label for="contraseña">Empresa</label>
+                </div>
+                
+            </div>
+            <div class="input-cointainer">
+                <div class="label-1">
+                    <input type="text" name="celular"ngModel required>
+                    <label for="contraseña">Celular</label>
+                </div>
+                <div class="label-2">
+                    <input type="text" name="ciudad"ngModel required>
+                    <label for="contraseña">Ciudad</label>
+                </div>
+            </div>
+            <div class="boton">
+                <button type="submit" [disabled]="!loginForm.valid">Comunicarse</button>
+            </div>
+        </form>
+        
+        <p>¿Ya tienes una cuenta? <a routerLink="/login">Iniciar Sesión</a></p>
+    </div>
+</div>
+

@@ -1,6 +1,6 @@
 .login-container{
     display: flex;
-    width: 800px;
+    width: 1000px;
     height: 370px;
     border: 3px solid #014380;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);  
@@ -8,8 +8,15 @@
     transition: all 0.3s ease-in-out;
 }
 
-.logo-section, .login-section{
+.logo-section {
     flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-section {
+    flex: 2;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,22 +50,19 @@
 }
 
 .input-cointainer{
+    display: flex;
+    margin-bottom: 10px;
+}
+.label-1, .label-2{
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     position: relative;
-    margin-bottom: 20px;
-    width: 100%;
+    margin: 10px 10px;
 }
 
-.input-cointainer input{
-    width: 300px;
-    padding: 10px;
-    border: 2px solid #ccc;
-    border-radius: 10px;
-    background: transparent;
-    transition: all 0.3s ease-in-out;
-    outline: none;
-}
-
-.input-cointainer label{
+.label-1 label, .label-2 label{
     position: absolute;
     top: 50%;
     left: 5%;
@@ -70,15 +74,25 @@
     pointer-events: none;
 }
 
-.input-cointainer input:focus~label,
-.input-cointainer input:valid~label {
+.label-1 input, .label-2 input{
+    width: 250px;
+    height: 30px;
+    padding: 0 10px;
+    background-color: transparent;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    outline: none;
+}
+
+.label-1 input:focus~label, .label-1 input:valid~label, 
+.label-2 input:focus~label, .label-2 input:valid~label{
     top: 0;
     background-color: #fff;
     color: #01afba;
 }
 
-.input-cointainer input:focus,
-.input-cointainer input:valid{
+.label-1 input:valid, .label-1 input:focus, 
+.label-2 input:focus, .label-2 input:valid{
     border: 2px solid #01afba;
 }
 
@@ -96,6 +110,7 @@
 .boton {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
 }
 .boton button{
     background-color: #f2663b;
@@ -104,7 +119,6 @@
     height: 40px;
     border-radius: 10px;
     font-size: 15px;
-    margin-bottom: 10px;
 }
 .boton button:hover{
     background-color: #d15732;

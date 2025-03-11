@@ -77,7 +77,7 @@ class otp_code(models.Model):
     
 class activos(models.Model):
      id = models.AutoField(primary_key=True)
-     nombre = models
+     nombre = models.CharField(max_length=255)
      proceso_area = models
      tipo = models
      descripcion = models
@@ -112,7 +112,7 @@ class disponibilidad(models.Model):
     valor = models
 
 class criticidad(models.Model):
-    id = models
+    id = models.AutoField(primary_key=True)
     estado = models
     valor = models
 
