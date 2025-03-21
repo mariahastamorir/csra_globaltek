@@ -20,7 +20,9 @@ export class ContactenosComponent {
       celular: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
       ciudad: ['', [Validators.required, Validators.minLength(3), Validators.maxLength(50),
          Validators.pattern('^[a-zA-ZáéíóúÁÉÍÓÚñÑ ]+$')]]
-    })
+    },
+    { updateOn: 'blur' } //que se valide luego de que el usuario deja el campo 
+  )
   }
 
   nombres: string = '';
@@ -30,11 +32,14 @@ export class ContactenosComponent {
   celular: string = '';
   ciudad: string = '';
 
-
   onSubmit() {
-    console.log (this.nombres, this.apellidos)
-    console.log (this.correoEmpresarial, this.empresa)
-    console.log (this.celular, this.ciudad)
+    if (this.contactenosForm.valid) {
+      console.log('Usuario:', this.contactenosForm.value.nombres);
+      console.log('Contraseña:', this.contactenosForm.value.apellidos);
+    } else {
+      console.log('El formulario no es válido.');
+    }
   }
+  
 
 }
