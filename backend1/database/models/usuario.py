@@ -4,11 +4,10 @@ from .tipodocumento import TipoDocumento
 from .empresa import Empresa
 from .otp_code import OTPCode
 from .usuarioManager import UsuarioManager
-from .roles import Rol
-from .rolxpermiso import Rol_permisos
+from .rolxpermiso import Rolxpermiso
 
 
-# Create your models here.
+
 class Usuario(AbstractBaseUser, PermissionsMixin):
     nombre = models.CharField(max_length=255, null=True, blank=True)
     numero_documento = models.CharField(max_length=255, null=True, blank=True)
@@ -20,8 +19,7 @@ class Usuario(AbstractBaseUser, PermissionsMixin):
 
     tipo_documento = models.ForeignKey(TipoDocumento, on_delete=models.SET_NULL, null=True, blank=True)
     empresa = models.ForeignKey(Empresa, on_delete=models.SET_NULL, null=True, blank=True)
-    #roles = models.ManyToManyField(Rol, related_name='usuarios', blank=True),
-    #rol_permiso = models.ForeignKey(Rol_permisos, on_delete=models.SET_NULL, null=True, blank=True)
+    rolxpermiso = models.ForeignKey(Rolxpermiso, on_delete=models.SET_NULL, null=True, blank=True)
     otp_code = models.ForeignKey(OTPCode, on_delete=models.SET_NULL, null=True, blank=True)
     
     groups = models.ManyToManyField(

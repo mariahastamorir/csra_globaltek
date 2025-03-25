@@ -1,5 +1,5 @@
 from django.db import models
-from .estadoxactivo import EstadoActivo
+from .estadoxactivo import Estadoxactivo
 
 # Create your models here.
 class Activo(models.Model):
@@ -12,7 +12,7 @@ class Activo(models.Model):
     dueno_activo = models.CharField(max_length=255, null=True, blank=True)
     custodio = models.CharField(max_length=255, null=True, blank=True)
     
-    estadoActivo=models.ForeignKey(EstadoActivo, on_delete=models.SET_NULL, null=True, blank=True)
+    estadoxactivo=models.ForeignKey(Estadoxactivo, on_delete=models.SET_NULL, null=True, blank=True)
     
 
     def __str__(self):

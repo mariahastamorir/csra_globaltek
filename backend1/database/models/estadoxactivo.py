@@ -4,7 +4,7 @@ from .integridad import Integridad
 from .disponibilidad import Disponibilidad
 from .criticidad import Criticidad
 
-class EstadoActivo(models.Model):
+class Estadoxactivo(models.Model):
     
     confidencialidad = models.ForeignKey(Confidencialidad, on_delete=models.CASCADE)
     integridad = models.ForeignKey(Integridad, on_delete=models.CASCADE)
