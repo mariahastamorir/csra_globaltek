@@ -1,4 +1,4 @@
-.login-container{
+.cambiar-container{
     display: flex;
     width: 800px;
     height: 370px;
@@ -8,7 +8,7 @@
     transition: all 0.3s ease-in-out;
 }
 
-.logo-section, .login-section{
+.logo-section, .cambiar-section{
     flex: 1;
     display: flex;
     justify-content: center;
@@ -24,27 +24,20 @@
 }
 
 /*Seccion del formulario*/
-.login-section{
+.cambiar-section{
     display: flex;
     flex-direction: column;
     align-items: center; 
     color: #014380;
 }
-.login-section{
-    color: black;
-}
-.login-section a, h1{
+.cambiar-section h1{
+    margin-bottom: 50px;
     color: #014380;
-    text-decoration: none;
-}
-.login-section a:hover{
-    color: #01afba;
-    text-decoration: none;
 }
 
 .input-cointainer{
     position: relative;
-    margin-bottom: 20px;
+    margin-bottom: 40px;
     width: 100%;
 }
 
@@ -82,17 +75,6 @@
     border: 2px solid #01afba;
 }
 
-.recuperar{
-    margin-bottom: 10px;
-    display: flex;
-    justify-content: end;
-}
-.recuperar a{
-    color:#014380;
-    text-decoration: none;
-    margin-bottom: 10px;
-}
-
 .boton {
     display: flex;
     justify-content: center;
@@ -110,10 +92,6 @@
     background-color: #d15732;
 }
 
-.mensaje-error{
-    color: red;
-    outline: none;
-}
 .ver-boton {
     position: absolute;
     top: 50%;
@@ -135,4 +113,7 @@
     width: 24px;
     height: 24px;
     fill: #000; /* Color del ícono */
+}
+.mensaje-error{
+    color: red;
 }
