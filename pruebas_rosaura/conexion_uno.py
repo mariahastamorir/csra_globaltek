@@ -23,16 +23,22 @@ try:
     #crear cursor para ejecutar consultas
     cursor = connection.cursor()
     
-    #ejecutar consulta simple
-    cursor.execute('SELECT * FROM tipodocumento')
+    
+
+    
+    # Solicitar datos del usuario
+    idTipodeDocumento = int(input('Ingrese el ID del tipo de documento: '))
+    
+    # Ejecutar consulta simple con parámetros seguros
+    sql = 'SELECT * FROM tipodocumento WHERE id = %s'
+    cursor.execute(sql, (idTipodeDocumento,))
+
     
     #obtener resultado (en este caso son listas)
-    records =cursor.fetchall()
+    records =cursor.fetchone()
     print(f"Conectado a la base de datos. Total registros: {len(records)}")
+    print(records)
     
-    #imprimir iterando la consulta y guardando las filas - rows
-    for fila in records:
-        print(fila)
 
 
     #-----cerrar el cursor y la conexion
