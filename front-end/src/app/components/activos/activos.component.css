@@ -1,6 +1,9 @@
 .center{
     width: 150%;
     text-align: center;
+    position: fixed;
+    top: 20%;
+    left: -25%;
 }
 .center button{
     background-color:  #f2663b;
@@ -15,7 +18,7 @@
 
 .container-table{
     margin: 10px;
-    margin-top: 30px;
+    margin-top: 10%;
 }
 table {
     table-layout: fixed;

@@ -1,7 +1,8 @@
 <app-navbar></app-navbar>
 <div class="center">
     <h1>Clasificación de activos</h1>
-    <button>Agregar activo</button>
+    <button (click)="openModal()">Agregar activo</button>
+    <app-modal-agregar-activo [isOpen]="showModal" (close)="closeModal()"></app-modal-agregar-activo>
 </div>
 <div class="container-table">
     <table>
