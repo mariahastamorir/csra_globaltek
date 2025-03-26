@@ -15,8 +15,19 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path,include
+from usuarios import urls as apirest_urls
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('api/', include(apirest_urls))
+    
 ]
+
+
+
+
+#GET → http://localhost:8000/api/usuarios/ → Listar todos los clientes
+#POST → http://localhost:8000/api/usuarios/ → Crear un cliente
+#PUT → http://localhost:8000/api/usuarios/1/ → Actualizar un cliente    
+#DELETE → http://localhost:8000/api/usuarios/1/ → Eliminar un cliente

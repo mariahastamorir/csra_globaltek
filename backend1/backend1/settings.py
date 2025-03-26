@@ -37,7 +37,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'rest_framework', #framework de la api
+    'corsheaders', #rutas de la api
     'database',
+    'usuarios',
+    'activos',
 ]
 
 MIDDLEWARE = [
@@ -102,6 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
     },
+    
 ]
 
 
@@ -126,3 +131,11 @@ STATIC_URL = 'static/'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# establecer base de datos usuario personalizado desde los modelos de la base de datos
+AUTH_USER_MODEL = 'database.Usuario'
+
+# Configuración de backends de autenticación
+AUTHENTICATION_BACKENDS = [
+    'django.contrib.auth.backends.ModelBackend',
+]

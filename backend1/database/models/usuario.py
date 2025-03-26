@@ -7,13 +7,14 @@ from .usuarioManager import UsuarioManager
 from .rolxpermiso import Rolxpermiso
 
 
-
+#Con AbstractBaseUser se añade password y  last_login
+# Con PermissionsMixin se añade is_superuser
 class Usuario(AbstractBaseUser, PermissionsMixin):
     nombre = models.CharField(max_length=255, null=True, blank=True)
     numero_documento = models.CharField(max_length=255, null=True, blank=True)
     telefono = models.CharField(max_length=255, null=True, blank=True)
-    correo = models.EmailField(unique=True)
-    contrasena = models.CharField(max_length=255)
+    correo = models.EmailField(unique=True, null=False)
+    #contrasena = models.CharField(max_length=255)  # validar si la contraseña se hace automatica
     is_active = models.BooleanField(default=True)
     is_staff = models.BooleanField(default=False)
 
