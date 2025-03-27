@@ -6,21 +6,26 @@ from .serializers import UsuarioSerializer # se trae el serializer #  Necesario 
 from rest_framework.views import APIView  # para las APIS
 from rest_framework.exceptions import AuthenticationFailed  # pra realizar validaciones 
 import jwt, datetime  #jason web token-  para los tokens
+from django.conf import settings
 
-SECRET_KEY = 'globalteckcsra2025internalproject2025globalteckcsra2025internalproject2025'
+SECRET_KEY = settings.SECRET_KEY
 
 class LoginUsuarioApi(APIView):
     def post (self,request):
         correo= request.data['correo']
         password = request.data ['password']
         
+        #validar que ingrese correo y contraseña
+        if not correo or not password:
+            raise AuthenticationFailed('Correo y contraseña son obligatorios')
+        
         usuario = Usuario.objects.filter(correo=correo).first() # se filtra si el usuario existe verificando desde el correo
         
         if usuario is None:
-            raise AuthenticationFailed('Usuario no encontrado') #Validación de correo
+            raise AuthenticationFailed('Usuario no encontrado') #Validación de correo correcto
         
         if not usuario.check_password(password):
-             raise AuthenticationFailed ('Contraseña incorrecta') #Validación de contraseña
+             raise AuthenticationFailed ('Contraseña incorrecta') #Validación de contraseña correcta
          
         payload ={
              'id': usuario.id,
@@ -28,13 +33,12 @@ class LoginUsuarioApi(APIView):
              'iat': datetime.datetime.utcnow()
          }
          
-        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
+        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')  #se guarda el token
         
         response= Response()
         response.set_cookie(key='jwt', value=token, httponly=True)  # REVISAR LUEGO EL HTTPS
-        response.data={
-            'jwt':token
-        }
+        
+        response.data={'message': 'Login exitoso'}
         return response
     
     

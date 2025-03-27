@@ -158,3 +158,7 @@ CORS_ALLOW_ALL_ORIGINS = True  # Permitir todas las conexiones para desarrollo
 
 CORS_ALLOW_CREDENTIALS = True
 
+
+
+# clave de token
+SECRET_KEY = 'globalteckcsra2025internalproject2025globalteckcsra2025internalproject2025'
