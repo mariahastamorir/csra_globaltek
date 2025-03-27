@@ -5,8 +5,9 @@ from database.models import Usuario # Trae el modelo de Usuario de la app databa
 from .serializers import UsuarioSerializer # se trae el serializer #  Necesario para convertir los datos de Python a JSON y viceversa.
 from rest_framework.views import APIView  # para las APIS
 from rest_framework.exceptions import AuthenticationFailed  # pra realizar validaciones 
-import jwt, datetime
+import jwt, datetime  #jason web token-  para los tokens
 
+SECRET_KEY = 'globalteckcsra2025internalproject2025globalteckcsra2025internalproject2025'
 
 class LoginUsuarioApi(APIView):
     def post (self,request):
@@ -27,7 +28,7 @@ class LoginUsuarioApi(APIView):
              'iat': datetime.datetime.utcnow()
          }
          
-        token = jwt.encode(payload, 'secret', algorithm='HS256')
+        token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')
         
         response= Response()
         response.set_cookie(key='jwt', value=token, httponly=True)  # REVISAR LUEGO EL HTTPS
@@ -44,7 +45,7 @@ class IngresoUsuarioApi (APIView):
         if not token:
             raise AuthenticationFailed('no autenticado')
         try:
-            payload = jwt.decode(token, 'secret', algorithms=['HS256'])
+            payload = jwt.decode(token, SECRET_KEY, algorithms=['HS256'])
         except jwt.ExpiredSignatureError:
             raise AuthenticationFailed('no autenticado')
         usuario = Usuario.objects.filter(id=payload['id']).first()
