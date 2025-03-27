@@ -1,0 +1,44 @@
+<div class="model-open" *ngIf="isOpen">
+    <div class="modal">
+        <div class="form-group">
+            <label for="">Nombre del activo</label>
+            <input class="options-one" type="text">
+        </div>
+        <div>
+            <label for="">Proceso / Área</label>
+            <select name="" id=""></select>
+        </div>
+        <div>
+            <label for="">Tipo de activo</label>
+            <select name="" id=""></select>
+        </div>
+        <div class="form-group">
+            <label>Descripción / Observaciones</label>
+            <textarea></textarea>
+        </div>
+        <section>
+            <h3>Criterios de clasificación</h3>
+            <div class="form-group">
+                <label>Confidencialidad</label>
+                <select></select>
+            </div>
+            <div class="form-group">
+                <label>Integridad</label>
+                <select></select>
+            </div>
+        
+            <div class="form-group">
+                <label>Disponibilidad</label>
+                <select></select>
+            </div>
+        
+            <div class="form-group">
+                <label>Valor criticidad</label>
+                <input type="text">
+            </div>
+        </section>
+            <button class="activo">Agregar activo</button>
+            <button class="" (click)="closeModal()">Cancelar</button>
+        
+    </div>
+</div>

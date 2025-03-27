@@ -11,6 +11,7 @@ import { NavbarComponent } from './components/navbar/navbar.component';
 import { PaginaprincipalComponent } from './components/paginaprincipal/paginaprincipal.component';
 import { CambiarContrasenaComponent } from './components/cambiar-contrasena/cambiar-contrasena.component';
 import { ActivosComponent } from './components/activos/activos.component';
+import { ModalAgregarActivoComponent } from './components/modal-agregar-activo/modal-agregar-activo.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { ActivosComponent } from './components/activos/activos.component';
     NavbarComponent,
     PaginaprincipalComponent,
     CambiarContrasenaComponent,
-    ActivosComponent
+    ActivosComponent,
+    ModalAgregarActivoComponent
   ],
   imports: [
     BrowserModule,

@@ -37,4 +37,14 @@ export class ActivosComponent {
       custodio: 'Infraestructura'
     },
   ];
+
+  showModal: boolean = false;
+
+  openModal() {
+    this.showModal = true;
+  }
+
+  closeModal() {
+    this.showModal = false;
+  }
 }
