@@ -42,7 +42,6 @@ INSTALLED_APPS = [
     'corsheaders', #rutas de la api
     'database',
     'usuarios',
-    'activos',
 ]
 
 MIDDLEWARE = [

@@ -36,7 +36,7 @@ class LoginUsuarioApi(APIView):
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')  #se guarda el token
         
         response= Response()
-        response.set_cookie(key='jwt', value=token, httponly=True)  # REVISAR LUEGO EL HTTPS
+        response.set_cookie(key='jwt', value=token, httponly=True, samesite='Lax') #samesite='Lax'- seguridad de las cookies # REVISAR LUEGO EL HTTPS
         
         response.data={'message': 'Login exitoso'}
         return response
