@@ -33,9 +33,12 @@ class LoginUsuarioApi(APIView):
              'iat': datetime.datetime.utcnow()
          }
          
+        #crear token JWT
         token = jwt.encode(payload, SECRET_KEY, algorithm='HS256')  #se guarda el token
         
         response= Response()
+        
+        #guardar token en una cookie
         response.set_cookie(key='jwt', value=token, httponly=True, samesite='Lax') #samesite='Lax'- seguridad de las cookies # REVISAR LUEGO EL HTTPS
         
         response.data={'message': 'Login exitoso'}
